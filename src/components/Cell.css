@@ -26,7 +26,7 @@
 }
 
 .yellowFlash {
-	animation: yellowFlash0 0.5s;
+	animation: yellowFlash 0.5s;
 }
 @keyframes yellowFlash {
 	from {
@@ -38,7 +38,7 @@
 }
 
 .greenFlash {
-	animation: greenFlash0 0.5s;
+	animation: greenFlash 0.5s;
 }
 @keyframes greenFlash {
 	0% {
