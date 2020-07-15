@@ -91,7 +91,7 @@ test('GridLogic checkAround function',  () => {
 	expect((g as any).checkAround(5, 8)).toEqual([]);
 });
 
-test('GridLogic checkForConsecutiveNumbers function',  () => {
+test('GridLogic searchForConsecutiveNumbers function',  () => {
 	const g = new GridLogic(10);
 	const grid = [
 		{value: 0, fibonacciValue: 0} ,{value: 13, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,
@@ -108,12 +108,12 @@ test('GridLogic checkForConsecutiveNumbers function',  () => {
 
 	// No Fibonacci number is detected
 	(g as any).grid = cloneDeep(grid);
-	(g as any).checkForConsecutiveNumbers(58);
+	(g as any).searchForConsecutiveNumbers(58);
 	expect(g.getGridClone()).toEqual(grid);
 
 	// All Fibonacci numbers are detected
 	(g as any).grid = cloneDeep(grid);
-	(g as any).checkForConsecutiveNumbers(0);
+	(g as any).searchForConsecutiveNumbers(0);
 	expect(g.getGridClone()).toEqual([
 		{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 13} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,
 		{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 21} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,
@@ -129,7 +129,7 @@ test('GridLogic checkForConsecutiveNumbers function',  () => {
 
 	// 2. column first 5 Fibonacci numbers are detected only
 	(g as any).grid = cloneDeep(grid);
-	(g as any).checkForConsecutiveNumbers(8);
+	(g as any).searchForConsecutiveNumbers(8);
 	expect(g.getGridClone()).toEqual([
 		{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 13} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,
 		{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 21} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,{value: 0, fibonacciValue: 0} ,
