@@ -1,0 +1,84 @@
+:root {
+	--cell-bg-color: #40454e;
+	--cell-font-color: #ccc;
+	--cell-yellow-flashing-color: #ff0;
+	--cell-green-flashing-color: #0f0;
+}
+
+.cellNormal, .cellFibonacci {
+	display: inline-block;
+	/* float: left; */
+	width: 24px;
+	height: 14px;
+	line-height: 14px;
+	text-align: center;
+	background-color: #40454e;
+	color: var(--cell-font-color);
+	font-size: 10px;
+	box-sizing: border-box;
+	margin: 1px 1px 0 0;
+	cursor: pointer;
+	overflow: hidden;
+	user-select: none;
+}
+
+.cellFibonacci {
+	color: #40454e;
+}
+
+/* to avoid class update after the animation, 2 distinct animations and keyframes are needed */
+.yellowFlash0 {
+	animation: yellowFlash0 0.3s;
+}
+.yellowFlash1 {
+	animation: yellowFlash1 0.3s;
+}
+@keyframes yellowFlash0 {
+	from {
+		background-color: var(--cell-yellow-flashing-color);
+	}
+	to {
+		background-color: var(--cell-bg-color);
+	}
+}
+@keyframes yellowFlash1 {
+	from {
+		background-color: var(--cell-yellow-flashing-color);
+	}
+	to {
+		background-color: var(--cell-bg-color);
+	}
+}
+
+.greenFlash0 {
+	animation: greenFlash0 0.3s;
+}
+.greenFlash1 {
+	animation: greenFlash1 0.3s;
+}
+@keyframes greenFlash0 {
+	0% {
+		background-color: var(--cell-green-flashing-color);
+		color: var(--cell-font-color);
+	}
+	99% {
+		color: var(--cell-font-color);
+	}
+	100% {
+		background-color: var(--cell-bg-color);
+		color: var(--cell-bg-color); /* to hide the content */
+	}
+}
+@keyframes greenFlash1 {
+	0% {
+		background-color: var(--cell-green-flashing-color);
+		color: var(--cell-font-color);
+	}
+	99% {
+		color: var(--cell-font-color);
+	}
+	100% {
+		background-color: var(--cell-bg-color);
+		color: var(--cell-bg-color); /* to hide the content */
+	}
+}
