@@ -7,7 +7,6 @@
 
 .cellNormal, .cellFibonacci {
 	display: inline-block;
-	/* float: left; */
 	width: 24px;
 	height: 14px;
 	line-height: 14px;
@@ -26,22 +25,10 @@
 	color: #40454e;
 }
 
-/* to avoid class update after the animation, 2 distinct animations and keyframes are needed */
-.yellowFlash0 {
-	animation: yellowFlash0 0.3s;
+.yellowFlash {
+	animation: yellowFlash0 0.5s;
 }
-.yellowFlash1 {
-	animation: yellowFlash1 0.3s;
-}
-@keyframes yellowFlash0 {
-	from {
-		background-color: var(--cell-yellow-flashing-color);
-	}
-	to {
-		background-color: var(--cell-bg-color);
-	}
-}
-@keyframes yellowFlash1 {
+@keyframes yellowFlash {
 	from {
 		background-color: var(--cell-yellow-flashing-color);
 	}
@@ -50,26 +37,10 @@
 	}
 }
 
-.greenFlash0 {
-	animation: greenFlash0 0.3s;
+.greenFlash {
+	animation: greenFlash0 0.5s;
 }
-.greenFlash1 {
-	animation: greenFlash1 0.3s;
-}
-@keyframes greenFlash0 {
-	0% {
-		background-color: var(--cell-green-flashing-color);
-		color: var(--cell-font-color);
-	}
-	99% {
-		color: var(--cell-font-color);
-	}
-	100% {
-		background-color: var(--cell-bg-color);
-		color: var(--cell-bg-color); /* to hide the content */
-	}
-}
-@keyframes greenFlash1 {
+@keyframes greenFlash {
 	0% {
 		background-color: var(--cell-green-flashing-color);
 		color: var(--cell-font-color);

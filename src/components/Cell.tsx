@@ -13,12 +13,12 @@ interface CellProps {
  * I solve the flashing with yellow and green with pure CSS.
  * Also after the Green flashing when the content should be empty string, it is just hidden: Used the same font colour as the background.
  * 
- * In this way, don't need to re-render the component after the flashing, just change the `animState` value. 2 CSS animations has been
- * created per flashing-colour to support this.
+ * In React, to restart a CSS animation can be achieved with using different `key` property per animation.
+ * In this way, the animation is triggered every time a user clicks on a cell regardless of the frequency of the clicks.
  */
 export default class Cell extends React.Component<CellProps, {}> {
 	prevValue:number = 0;
-	animState:number = 0; // Store which animation class should be added next time. In this way, we are not triggering state change to remove flashing class.
+	divKey:number = 0; // Store which animation class should be added next time. In this way, we are not triggering state change to remove flashing class.
 
 	shouldComponentUpdate(nextProps:CellProps) {
 		return nextProps.data.value !== this.props.data.value || nextProps.data.fibonacciValue !== this.props.data.fibonacciValue;
@@ -30,17 +30,17 @@ export default class Cell extends React.Component<CellProps, {}> {
 		
 		let className = "cellNormal";
 		if (value !== this.prevValue) {
-			className = (value === 0 ? 'cellFibonacci greenFlash' : 'cellNormal yellowFlash') + this.animState;
+			className = (value === 0 ? 'cellFibonacci greenFlash' : 'cellNormal yellowFlash');
+			// Change this only if animation is applied, so new key will be used next time.
+			this.divKey = 1 - this.divKey;
 		}
 		this.prevValue = value;
 
 		return (<div
+			key={this.divKey}
 			id={id}
 			data-testid={id}
 			className={className}
-			onAnimationEnd={() => {
-				this.animState = 1 - this.animState;
-			}}
 		>
 			{ value > 0 ? value : (fibonacciValue > 0 ? fibonacciValue : '') }
 		</div>);

@@ -17,7 +17,8 @@ There is a config.ts file to configure the grid size and the behavior:
 * `CONSECUTIVE_COUNT`: How many consecutive numbers should be found.
 * `ONLY_SORTED_NUMBERS`: Only consecutive AND sorted numbers are allowed. If this is `false` then the numbers shouldn't be in order. E.g. [3, 5, 2, 1, 8] will be accepted too.
 
-During the implementation, I tried to avoid unnecessary re-rendering. To achieve this, 2-2 CSS animations have been created per colour. In this way, I can also achieved that the animation is triggered every time a user clicks on a cell regardless of the frequency of the clicks - all click will initiate a flashing animation.
+During the implementation, I tried to avoid unnecessary re-rendering and using CSS animation, that is why `shouldComponentUpdate()` and `key` property are used. 
+In React, to restart a CSS animation can be achieved with using different `key` property per animation. In this way, the animation is triggered every time a user clicks on a cell regardless of the frequency of the clicks - all click will initiate a flashing animation.
 
 The main Cell component and `.ts` files with logic have tests. For the "how to run the tests", please see blow.
 
