@@ -11,7 +11,7 @@
 	height: 14px;
 	line-height: 14px;
 	text-align: center;
-	background-color: #40454e;
+	background-color: var(--cell-bg-color);
 	color: var(--cell-font-color);
 	font-size: 10px;
 	box-sizing: border-box;
@@ -22,7 +22,7 @@
 }
 
 .cellFibonacci {
-	color: #40454e;
+	color: var(--cell-bg-color);
 }
 
 .yellowFlash {
